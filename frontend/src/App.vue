@@ -5,8 +5,47 @@
       <router-link to="/about">About</router-link>
     </div>
     <router-view />
+    <Booklist v-bind:books="books" />
   </div>
 </template>
+
+<script>
+import Booklist from "./componenets/Booklist";
+
+export default {
+  name: 'app',
+  components: {
+
+  },
+  data () {
+    return {
+      books: [
+        {
+          id: 1,
+          title: "Cat in the Hat",
+          author: "Dr. Suess",
+          publisher: "cat publishing",
+          isbn: "1234-123123123123-123"
+        },
+        {
+          id: 2,
+          title: "Cat in the sock",
+          author: "Miss Suess",
+          publisher: "cat publishing",
+          isbn: "3333-123123123123-123"
+        },
+        {
+          id: 3,
+          title: "Cat in the dock",
+          author: "Mr. Suess",
+          publisher: "cat publishing",
+          isbn: "6666-123123123123-123"
+        }
+      ]
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
