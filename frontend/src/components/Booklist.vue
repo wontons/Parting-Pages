@@ -2,9 +2,7 @@
     <div>
         <h1>Books</h1>
         <div v-bind:key="book.id" v-for="book in books">
-            <h2>{{book.title}}</h2>
-            <h3>By: {{book.author}}</h3>
-            <h4>Publisher: {{book.publisher}}
+            <Book v-bind:book="book" v-on:del-book="$emit('del-book', book.id)"/>
         </div>
     </div>
 </template>
@@ -14,6 +12,9 @@ import Book from "./Book";
 
 export default {
     name: "Booklist",
+    components: {
+        Book
+    },
     props: ["books"]
 }
 </script>

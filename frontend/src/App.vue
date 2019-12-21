@@ -5,7 +5,7 @@
       <router-link to="/about">About</router-link>
     </div>
     <router-view />
-    <Booklist v-bind:books="books" />
+    <Booklist v-bind:books="books" v-on:del-book="deleteBook" />
   </div>
 </template>
 
@@ -25,23 +25,31 @@ export default {
           title: "Cat in the Hat",
           author: "Dr. Suess",
           publisher: "cat publishing",
-          isbn: "1234-123123123123-123"
+          isbn: "1234-123123123123-123",
+          sold: false
         },
         {
           id: 2,
           title: "Cat in the sock",
           author: "Miss Suess",
           publisher: "cat publishing",
-          isbn: "3333-123123123123-123"
+          isbn: "3333-123123123123-123",
+          sold: false
         },
         {
           id: 3,
           title: "Cat in the dock",
           author: "Mr. Suess",
           publisher: "cat publishing",
-          isbn: "6666-123123123123-123"
+          isbn: "6666-123123123123-123",
+          sold: true
         }
       ]
+    }
+  },
+  methods :{
+    deleteBook(id) {
+      this.books = this.books.filter(book => book.id !== id);
     }
   }
 }
