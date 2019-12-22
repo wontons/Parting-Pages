@@ -46,6 +46,8 @@ services:
       - upnet
     volumes:
       - ./frontend:/app
+      - ./frontend:/src
+      - ./frontend:/src/components
 
 networks:
   upnet:

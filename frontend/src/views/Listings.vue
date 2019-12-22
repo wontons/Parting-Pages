@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Booklist />
+        <Booklist v-bind:books="books"/>
     </div>
 </template>
 
