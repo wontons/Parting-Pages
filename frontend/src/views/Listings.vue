@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Booklist v-bind:books="books"/>
+      <Booklist v-bind:books="books"/>
     </div>
 </template>
 
@@ -40,11 +40,6 @@ export default {
           sold: true
         }
       ]
-    }
-  },
-  methods: {
-    deleteBook(id) {
-      this.books = this.books.filter(book => book.id !== id);
     }
   }
 }

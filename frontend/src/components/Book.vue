@@ -13,12 +13,7 @@
 export default {
   name: "book",
   props: ["book"],
-  methods: {
-    markSold() {
-      console.log("Sold!");
-      this.book.sold = !this.book.sold;
-    }
-  }
+  methods: {}
 }
 </script>
 
