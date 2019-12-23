@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <div id="nav" class="bg-purple-500">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> | 
+      <router-link to="/about">About</router-link> |
       <router-link to="/listings">Listings</router-link>
     </div>
     <router-view />
@@ -11,10 +11,10 @@
 
 <script>
 export default {
-  name: 'app',
+  name: "app",
   components: {},
   methods: {}
-}
+};
 </script>
 
 <style lang="scss">

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" @click.self="close">
+  <div v-if="visible" @click.self="close" class="">
     <div class="">
       <button aria-label="close" class="" @click.prevent="close">
         x

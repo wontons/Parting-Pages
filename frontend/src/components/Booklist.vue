@@ -5,7 +5,7 @@
       <div class="book-header">
         Books
       </div>
-      <button class="new-book" @click="modalVisible = true">
+      <button class="bg-blue-500" @click="modalVisible = true">
         New Book
       </button>
       <AddBookModal :visible="modalVisible" @close="modalVisible = false">
