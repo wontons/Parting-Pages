@@ -21,7 +21,9 @@ export default {
           author: "Dr. Suess",
           publisher: "cat publishing",
           isbn: "1234-123123123123-123",
-          sold: false
+          sold: false,
+          condiition: "Fine",
+          highlighted: true
         },
         {
           id: 2,
@@ -29,7 +31,9 @@ export default {
           author: "Miss Suess",
           publisher: "cat publishing",
           isbn: "3333-123123123123-123",
-          sold: false
+          sold: false,
+          condiition: "Poor",
+          highlighted: false
         },
         {
           id: 3,
@@ -37,7 +41,9 @@ export default {
           author: "Mr. Suess",
           publisher: "cat publishing",
           isbn: "6666-123123123123-123",
-          sold: true
+          sold: true,
+          condiition: "Good",
+          highlighted: true
         }
       ]
     }
