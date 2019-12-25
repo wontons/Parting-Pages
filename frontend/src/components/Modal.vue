@@ -16,7 +16,7 @@
 
 <script>
 export default {
-    name: "addBookModal",
+    name: "modal",
     props: {
       visible: Boolean,
       title: String

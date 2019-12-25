@@ -14,12 +14,12 @@
         <Book v-bind:book="book"/>
       </div>
     </div>
-    <AddBookModal class="" :title="bookModalTitle" :visible="bookModal" @close="bookModal = false">
+    <Modal class="" :title="bookModalTitle" :visible="bookModal" @close="bookModal = false">
       <button class="flex-1 rounded bg-gray-200 hover:bg-red-500 text-white font-bold py-2 px-2 m-4" @click="bookModal = false">
         Close
       </button>
-    </AddBookModal>
-    <AddBookModal class="" :title="modalTitle" :visible="modalVisible" @close="modalVisible = false">
+    </Modal>
+    <Modal class="" :title="modalTitle" :visible="modalVisible" @close="modalVisible = false">
       <form class="">
         <div class="mb-4 text-left">
           <label class="block text-gray-500" for="bookTitle">
@@ -69,19 +69,19 @@
           </button>
         </div>
       </form>
-    </AddBookModal>
+    </Modal>
   </div>
 </template>
 
 <script>
 import Book from "./Book.vue";
-import AddBookModal from "./AddBookModal.vue";
+import Modal from "./Modal.vue";
 
 export default {
   name: "booklist",
   components: {
     Book,
-    AddBookModal
+    Modal
   },
   props: ["books"],
   methods: {
