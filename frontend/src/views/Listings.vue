@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="bg-red-800 mb-8">
       <Booklist v-bind:books="books"/>
     </div>
 </template>
@@ -22,7 +22,7 @@ export default {
           publisher: "cat publishing",
           isbn: "1234-123123123123-123",
           sold: false,
-          condiition: "Fine",
+          condition: "Fine",
           highlighted: true
         },
         {
@@ -32,7 +32,7 @@ export default {
           publisher: "cat publishing",
           isbn: "3333-123123123123-123",
           sold: false,
-          condiition: "Poor",
+          condition: "Poor",
           highlighted: false
         },
         {
@@ -42,7 +42,7 @@ export default {
           publisher: "cat publishing",
           isbn: "6666-123123123123-123",
           sold: true,
-          condiition: "Good",
+          condition: "Good",
           highlighted: true
         }
       ]

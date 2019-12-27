@@ -1,42 +1,9 @@
 <template>
-
-  <div class="flex flex-col items-center m-4">
-    <InfoCard />
-    <InfoCard />
-    <InfoCard />
+  <div class="flex flex-col items-center mb-8">
+    <InfoCard :info="info0" />
+    <InfoCard :info="info1" />
+    <InfoCard :info="info2" />
   </div>
-
-
-
-
-
-  <!--div class="home">
-    <div class="flex center bg-gray-200">
-      <div class="flex justify-start m-4">
-        <InfoCard />
-      </div>
-      <div class="flex justify-center">
-        <div class="flex flex-col w-1/2 max-w-xl bg-white shadow-lg rounded-lg object-center m-4">
-          <div class="flex text-green-600 font-bold bg-gray-100">
-            info about selling books will be here
-          </div>
-          <div class="flex w-l h-l bg-green-200">
-            picture placeholder
-          </div>
-        </div>
-      </div>
-      <div class="flex justify-end">
-        <div class="flex flex-col w-1/2 max-w-xl bg-white shadow-lg rounded-lg object-right m-4">
-          <div class="flex text-red-600 font-bold bg-gray-100">
-            info about buying books here
-          </div>
-          <div class="flex w-l h-l bg-red-200">
-            picture placeholder
-          </div>
-        </div>
-      </div>
-    </div>
-  </div-->
 </template>
 
 <script>
@@ -49,6 +16,31 @@ export default {
   components: {
     //UpStart
     InfoCard
+  },
+  data() {
+    return {
+      info0: {
+        title: "Welcome to Parting Pages",
+        desc: "A marketplace for used textbooks",
+        imgPath: "books",
+        imgAlt: "A stack of textbooks",
+        books: [true,false,false]
+      },
+      info1: {
+        title: "Purchase a textbook",
+        desc: "Sort through our listings by name, quality, and price!",
+        imgPath: "books",
+        imgAlt: "A stack of textbooks",
+        books: [false,true,false]
+      },
+      info2: {
+        title: "Create a new listing",
+        desc: "List your used textbook today!",
+        imgPath: "books",
+        imgAlt: "A stack of textbooks",
+        books: [false,false,true]
+      }
+    }
   }
 };
 </script>
