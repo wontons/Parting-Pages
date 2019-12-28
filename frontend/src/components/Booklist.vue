@@ -7,15 +7,15 @@
           <path d="M6 4H5a1 1 0 1 1 0-2h11V1a1 1 0 0 0-1-1H4a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V5a1 1 0 0 0-1-1h-7v8l-2-2-2 2V4z"/>
         </svg>
       </div>
-      <button class="flex rounded bg-yellow-600 m-4 p-4 items-center hover:bg-yellow-800" @click="modalVisible = true">
+      <button class="flex rounded bg-yellow-600 m-4 p-4 items-center hover:bg-yellow-800" @click="newListing">
         <span class="mr-2 text-bold text-xl">New Listing</span> 
         <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
           <path d="M11 9h4v2h-4v4H9v-4H5V9h4V5h2v4zm-1 11a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"/>
         </svg>
       </button>
     </div>
-    <div class="" @click="log">
-      <div class="" v-for="book in books" v-bind:key="book.id" @click="bookModal = true">
+    <div>
+      <div class="" v-for="book in books" v-bind:key="book.id" :visible="bookModal">
         <Book v-bind:book="book"/>
       </div>
     </div>
@@ -24,7 +24,9 @@
         Close
       </button>
     </Modal>
-    <Modal class="" :title="modalTitle" :visible="modalVisible" @close="modalVisible = false">
+    <BookInfo :visible="bookInfoVisible" @close="bookInfoVisible = false" @input="bookInfo" :book="books[1]"/>
+    <NewListing :visible="modalVisible" @close="modalVisible = false"/>
+    <!--Modal class="" :title="modalTitle" :visible="modalVisible" @close="modalVisible = false">
       <form>
         <div class="mb-4 text-left">
           <label class="block text-gray-500" for="bookTitle">
@@ -82,30 +84,43 @@
           </button>
         </div>
       </form>
-    </Modal>
+    </Modal-->
   </div>
 </template>
 
 <script>
-import Book from "./Book.vue";
-import Modal from "./Modal.vue";
+import Book from "./cards/Book.vue";
+import Modal from "./modals/Modal.vue";
+import NewListing from "./modals/NewListing.vue";
+import BookInfo from "./modals/BookInfo.vue";
 
 export default {
   name: "booklist",
   components: {
     Book,
-    Modal
+    Modal,
+    NewListing,
+    BookInfo
   },
   props: ["books"],
   methods: {
     log() {
       console.log("Clicked!");
+    },
+    newListing() {
+      this.modalVisible = true;
+      console.log("new listing created!");
+    },
+    bookInfo() {
+      this.bookInfoVisible = true;
+      console.log("book opened src: booklist");
     }
   },
   data() {
     return {
       modalVisible: false,
       bookModal: false,
+      bookInfoVisible: false,
       modalTitle: "New Book",
       bookModalTitle: "Detailed Book Info"
     }
