@@ -9,7 +9,7 @@
 <script>
 // @ is an alias to /src
 //import UpStart from "@/components/UpStart.vue";
-import InfoCard from "@/components/InfoCard.vue";
+import InfoCard from "@/components/cards/InfoCard.vue";
 
 export default {
   name: "home",

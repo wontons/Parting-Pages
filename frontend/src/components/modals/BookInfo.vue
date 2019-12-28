@@ -10,7 +10,7 @@
             x
           </button>
         </div>
-        <div class="flex-col rounded-lg text-center mt-4">
+        <div class="flex-col rounded-lg text-center justify-start mt-4">
           <div class="flex justify-center items-center text-2xl font-bold m-2">
             <svg class="h-4 w-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
               <path d="M2 2c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v18l-8-4-8 4V2z"/>
@@ -49,7 +49,7 @@
               <div :class="book.highlighted ? 'bg-yellow-400' : ''">{{book.highlighted ? 'highlighting' : 'no highlighting'}}</div>
             </span>
           </div>
-          <div class="flex-col justify-center items-center">
+          <div class="flex">
             <button class="flex rounded bg-green-400 hover:bg-green-600 text-white font-bold py-2 px-2 m-2" @click="close">
               Purchase
             </button>

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center items-center bg-purple-700 rounded border m-4">
+  <div class="flex justify-center items-center bg-purple-100 rounded border m-4">
     <!--div class="flex flex-col bg-green-200">
       <div class="flex book-title book-item">{{book.title}}</div>
       <div class="flex book-auth book-item">{{book.author}}</div>
@@ -9,7 +9,7 @@
       <div class="text-black font-bold">{{book.highlighted}}</div>
     </div-->
     <BookInfo :book="book" :visible="showinfo" @close="lessInfo" />
-    <div class="bg-gray-300 flex-col items-center rounded-lg border shadow overflow-hidden w-1/2 mt-8 hover:bg-white">
+    <div class="bg-gray-300 flex-col items-center rounded-lg border shadow overflow-hidden w-1/2 m-2 hover:bg-white">
       <div class="flex-col">
         <div class="flex justify-between items-center m-4">
           <div class="flex justify-center items-center text-2xl font-bold m-2">
@@ -65,7 +65,7 @@
 </template>
 
 <script>
-import BookInfo from "./modals/BookInfo.vue";
+import BookInfo from "@/components/modals/BookInfo.vue";
 
 export default {
   name: "book",
