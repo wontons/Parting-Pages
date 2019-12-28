@@ -1,12 +1,21 @@
 <template>
-  <div id="app">
-    <div id="nav">
+  <div id="app" class="antialiased text-gray-900 text-center">
+    <div id="nav" class="bg-purple-500">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link> |
+      <router-link to="/listings">Listings</router-link>
     </div>
     <router-view />
   </div>
 </template>
+
+<script>
+export default {
+  name: "app",
+  components: {},
+  methods: {}
+};
+</script>
 
 <style lang="scss">
 #app {

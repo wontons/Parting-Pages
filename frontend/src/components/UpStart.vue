@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import axios from "axios";
+//import axios from "axios";
 
 export default {
   name: "UpStart",
@@ -19,8 +19,8 @@ export default {
   },
   async created() {
     console.log("created");
-    const response = await axios.get("/api/start");
-    this.serverMessage = response.data.message;
+    //const response = await axios.get("/api/start");
+    //this.serverMessage = response.data.message;
   }
 };
 </script>
