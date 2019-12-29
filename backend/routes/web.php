@@ -21,3 +21,5 @@ $router->get('/api/start', function () {
         'message' => 'All requests with api prefix will go to backend'
     ];
 });
+
+Route::get('/api/book/{id}', 'BookController@show');
