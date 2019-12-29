@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center items-center bg-purple-100 rounded border m-4">
+  <div class="flex justify-center items-center m-4">
     <!--div class="flex flex-col bg-green-200">
       <div class="flex book-title book-item">{{book.title}}</div>
       <div class="flex book-auth book-item">{{book.author}}</div>
@@ -9,7 +9,7 @@
       <div class="text-black font-bold">{{book.highlighted}}</div>
     </div-->
     <BookInfo :book="book" :visible="showinfo" @close="lessInfo" />
-    <div class="bg-gray-300 flex-col items-center rounded-lg border shadow overflow-hidden w-1/2 m-2 hover:bg-white">
+    <div class="flex-col items-center rounded-lg border shadow overflow-hidden w-1/2 m-2 hover:bg-white">
       <div class="flex-col">
         <div class="flex justify-between items-center m-4">
           <div class="flex justify-center items-center text-2xl font-bold m-2">
@@ -32,17 +32,14 @@
             </svg>
             <span>{{book.author}}</span>
           </div>
-          <div class="flex justify-center items-center text-md m-2">
+          <div class="flex justify-center items-center text-md m-2 p-2">
             <svg class="h-4 w-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
               <path d="M11 9.27V0l6 11-4 6H7l-4-6L9 0v9.27a2 2 0 1 0 2 0zM6 18h8v2H6v-2z"/>
             </svg>
-            <span>{{book.highlighted}}</span>
+            <span>
+              <div :class="book.highlighted ? 'rounded p-2 font-bold bg-yellow-400' : ''">{{book.highlighted ? 'highlighting' : 'no highlighting'}}</div>
+            </span>
           </div>
-        </div>
-        <div v-if="this.showinfo" class="bg-pink-200 p-4 m-4">
-          <div class="bg-pink-600">{{book.publisher}}</div>
-          <div class="bg-pink-600">{{book.isbn}}</div>
-          <div class="" :class="book.sold ? 'text-green-500' : 'text-red-500'">{{book.sold ? "available" : "sold"}}</div>
         </div>
       </div>
       <div class="flex m-2">

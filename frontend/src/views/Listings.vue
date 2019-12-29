@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-red-800 mb-8">
+    <div class="mb-8">
       <Booklist v-bind:books="books"/>
     </div>
 </template>

@@ -50,8 +50,8 @@
             <div class="mb-4 relative w-max-1/4">
               <select required class="block shadow border rounded w-full bg-gray-200 focus:bg-white" id="condition">
                 <option value="" disabled selected hidden>Select Condition</option>
-                <option value="fine"><div class="mt-8">Fine / Like New</div></option>
-                <option value="vgood">Very Good</option>
+                <option value="fine"><div class="mt-8">Fine</div></option>
+                <option value="great">Great</option>
                 <option value="good">Good</option>
                 <option value="fair">Fair</option>
                 <option value="poor">Poor</option>

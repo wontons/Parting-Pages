@@ -45,8 +45,8 @@
             <svg class="h-4 w-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
               <path d="M11 9.27V0l6 11-4 6H7l-4-6L9 0v9.27a2 2 0 1 0 2 0zM6 18h8v2H6v-2z"/>
             </svg>
-            <span class="p-2">
-              <div :class="book.highlighted ? 'bg-yellow-400' : ''">{{book.highlighted ? 'highlighting' : 'no highlighting'}}</div>
+            <span>
+              <div :class="book.highlighted ? 'rounded p-2 font-bold bg-yellow-400' : ''">{{book.highlighted ? 'highlighting' : 'no highlighting'}}</div>
             </span>
           </div>
           <div class="flex">
