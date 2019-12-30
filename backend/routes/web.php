@@ -15,9 +15,8 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/api/start', function () {
-    // this is a api endpoint demo, you should create a controller for your endpoint
-    return [
-        'message' => 'All requests with api prefix will go to backend'
-    ];
-});
+Route::get('api/book', 'BookController@index');
+Route::post('api/book', 'BookController@store');
+Route::get('api/book/{id}', 'BookController@show');
+Route::put('api/book/{id}', 'BookController@update');
+Route::delete('api/book/{id}', 'BookController@destroy');
