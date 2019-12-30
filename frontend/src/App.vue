@@ -2,18 +2,21 @@
   <div id="app" class="antialiased text-gray-900 text-center">
     <div id="nav" class="bg-purple-500">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
       <router-link to="/listings">Listings</router-link>
     </div>
     <router-view />
+    <MyFooter />
   </div>
 </template>
 
 <script>
+import MyFooter from "./components/MyFooter.vue";
+
 export default {
   name: "app",
-  components: {},
-  methods: {}
+  components: {
+    MyFooter
+  }
 };
 </script>
 

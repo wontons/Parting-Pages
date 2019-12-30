@@ -25,15 +25,15 @@
           </div>
           <div class="flex justify-center items-center text-md m-2">
             <svg class="h-4 w-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-              <path d="M11 9.27V0l6 11-4 6H7l-4-6L9 0v9.27a2 2 0 1 0 2 0zM6 18h8v2H6v-2z"/>
+              <path d="M2 4v14h14v-6l2-2v10H0V2h10L8 4H2zm10.3-.3l4 4L8 16H4v-4l8.3-8.3zm1.4-1.4L16 0l4 4-2.3 2.3-4-4z"/>
             </svg>
-            <span>{{book.publisher}}</span>
+            <span>{{book.publisher || 'Not available'}}</span>
           </div>
           <div class="flex justify-center items-center text-md m-2">
             <svg class="h-4 w-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-              <path d="M11 9.27V0l6 11-4 6H7l-4-6L9 0v9.27a2 2 0 1 0 2 0zM6 18h8v2H6v-2z"/>
+              <path d="M0 6l10-6 10 6v2H0V6zm0 12h20v2H0v-2zm2-2h16v2H2v-2zm0-8h4v8H2V8zm6 0h4v8H8V8zm6 0h4v8h-4V8z"/>
             </svg>
-            <span>{{book.isbn}}</span>
+            <span>{{book.isbn || 'Not available'}}</span>
           </div>
           <div class="flex justify-center items-center text-md m-2">
             <svg class="h-4 w-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -46,14 +46,22 @@
               <path d="M11 9.27V0l6 11-4 6H7l-4-6L9 0v9.27a2 2 0 1 0 2 0zM6 18h8v2H6v-2z"/>
             </svg>
             <span>
-              <div :class="book.highlighted ? 'rounded p-2 font-bold bg-yellow-400' : ''">{{book.highlighted ? 'highlighting' : 'no highlighting'}}</div>
+              <div :class="book.highlighting ? 'rounded p-2 font-bold bg-yellow-400' : ''">{{book.highlighting ? 'highlighting' : 'no highlighting'}}</div>
             </span>
           </div>
-          <div class="flex">
-            <button class="flex rounded bg-green-400 hover:bg-green-600 text-white font-bold py-2 px-2 m-2" @click="close">
-              Purchase
-            </button>
-            <button class="flex rounded bg-orange-400 hover:bg-orange-600 text-white font-bold py-2 px-2 m-2" @click="remove">
+          <div class="flex justify-center items-center text-md m-2">
+            <svg class="h-4 w-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M2 2c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm3 1v2h10V3H5zm0 4v2h2V7H5zm4 0v2h2V7H9zm4 0v2h2V7h-2zm-8 4v2h2v-2H5zm4 0v2h2v-2H9zm4 0v6h2v-6h-2zm-8 4v2h2v-2H5zm4 0v2h2v-2H9z"/>
+            </svg>
+            <span>${{book.price}}</span>
+          </div>
+          <div class="flex justify-center">
+            <div class="f">
+              <button class="flex rounded text-white font-bold py-2 px-2 m-2" :class="sold ? 'bg-red-400' : 'bg-green-400 hover:bg-green-600'" @click="sendPurchase">
+                {{ sold ? 'Sold' : 'Purchase' }}
+              </button>
+            </div>
+            <button class="flex rounded bg-orange-400 hover:bg-orange-600 text-white font-bold py-2 px-2 m-2" @click="deleteBook(book.id)">
               Remove
             </button>
             <button class="flex rounded bg-red-400 hover:bg-red-600 text-white font-bold py-2 px-2 m-2" @click="close">
@@ -67,38 +75,39 @@
 </template>
 
 <script>
-//import RemoveDialog from "./RemoveDialog.vue";
-//import PurchaseDialog from "./PurchaseDialog.vue";
+import axios from "axios";
 
 export default {
   name: "bookinfo",
   props: {
     book: {},
-    visible: Boolean
-  },
-  components: {
-    //RemoveDialog,
-    //PurchaseDialog
+    visible: Boolean,
+    sold: Boolean
   },
   methods: {
     close() {
       this.$emit("close");
     },
-    removeDialog() {
-      //this.$emit("close");
-      this.showremove = true;
+    deleteBook(id) {
+      axios
+        .delete('/api/book/' + id)
+        .then(res => {
+          //alert user that book was deleted
+          alert(res.data);
+        })
+
+      //close the info modal
+      this.$emit("close");
     },
-    purchaseDialog() {
-      this.showpurchase = true;
-    }
-  },
-  data() {
-    return {
-      showremove: false,
-      showpurchase: false
+    sendPurchase() {
+      //only call if the book is not sold
+      if(!this.sold) {
+        this.$emit("purchase");
+        this.$emit("close");
+      }
     }
   }
-}
+};
 </script>
 
 <style scoped>
